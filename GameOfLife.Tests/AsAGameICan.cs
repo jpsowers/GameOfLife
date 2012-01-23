@@ -30,39 +30,38 @@ namespace GameOfLife.Tests
         [Test]
         public void AtLeastOneValueOfTheArrayIsAnX()
         {
-            var thereIsAnX = 0;
-
-            for (var i = 0; i < _game.Grid.GetUpperBound(1); i++)
-            {
-                for (var j = 0; j < _game.Grid.GetUpperBound(0); j++)
-                {
-                    if(_game.Grid[i,j] == "X")
-                    {
-                        thereIsAnX = thereIsAnX + 1;
-                    }
-                }
-            }
+            int thereIsAnX = _game.CountOfXValuesOnGrid();
             Assert.That(thereIsAnX > 0);
         }
 
         [Test]
-        public void TellWhenTwoValuesOfTheArrayAreX()
+        public void ReturnThreeWhenThereAreThreeXsOnTheGrid()
         {
-            var thereIsAnX = 0;
-
-            for (var i = 0; i < _game.Grid.GetUpperBound(1); i++)
-            {
-                for (var j = 0; j < _game.Grid.GetUpperBound(0); j++)
-                {
-                    if(_game.Grid[i,j] == "X")
-                    {
-                        thereIsAnX = thereIsAnX + 1;
-                    }
-                }
-            }
-            Assert.That(2, Is.EqualTo(thereIsAnX));
+            int thereIsAnX = _game.CountOfXValuesOnGrid();
+            Assert.That(3, Is.EqualTo(thereIsAnX));
         }
 
+        [Test]
+        public void CanCalculateHowManyXsAreAroundTheCenterSquareOfA3X3Grid()
+        {
+           Assert.AreEqual(2, _game.CountOfXValuesAdjacentToCenterOfGrid());
+        }
 
+        [Test]
+        public void CanCalculateHowManyXsAreAroundALocationPassedInAssumingNullsForLocationsOfftheGrid()
+        {
+            Assert.That(2, Is.EqualTo(_game.CountOfValuesAdjacentToLocation(new Cell(1,0))));
+        }
+       
+        [Test]
+        public void CalculateTheNextValueForALocationPassedIn()
+        {
+            var celltoLive = new Cell(0,0);
+            var cellToDie = new Cell(2,0);
+            Assert.That("X", Is.EqualTo(_game.ValueAtNextGeneration(celltoLive)));
+            Assert.That("0", Is.EqualTo( _game.ValueAtNextGeneration(cellToDie)));
+        }
+
+   
     }
 }

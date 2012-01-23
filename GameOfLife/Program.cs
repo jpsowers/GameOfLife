@@ -5,7 +5,7 @@ namespace GameOfLife
     class Program
     {
         
-        static  void Main(string[] args)
+        static  void Main()
         {
             var game = new Game();
             Console.WriteLine(game.Start());
