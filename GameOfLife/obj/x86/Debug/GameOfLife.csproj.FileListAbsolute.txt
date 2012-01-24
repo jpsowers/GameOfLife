@@ -1,0 +1,6 @@
+C:\development\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe.config
+C:\development\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe
+C:\development\GameOfLife\GameOfLife\bin\Debug\GameOfLife.pdb
+C:\development\GameOfLife\GameOfLife\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\development\GameOfLife\GameOfLife\obj\x86\Debug\GameOfLife.exe
+C:\development\GameOfLife\GameOfLife\obj\x86\Debug\GameOfLife.pdb
