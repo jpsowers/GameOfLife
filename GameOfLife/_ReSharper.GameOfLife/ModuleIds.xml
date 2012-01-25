@@ -1,4 +1,0 @@
-<Modules>
-  <Module PersistentId="763D75EC-F8B7-465A-A925-F326BACAAE31" ModuleId="GameOfLife.Tests" />
-  <Module PersistentId="4D4516D3-6E75-43F9-AC96-D5F5DCCCC2A3" ModuleId="GameOfLife" />
-</Modules>

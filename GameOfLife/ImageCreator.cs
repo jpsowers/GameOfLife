@@ -16,21 +16,15 @@ namespace GameOfLife
 
         public byte[] DrawGrid()
         {
-<<<<<<< HEAD
-=======
-            
->>>>>>> dev
+
             using (var grid = new Bitmap(_populatedGrid.GetUpperBound(0), _populatedGrid.GetUpperBound(1)))
             {
                 using (var graphics = Graphics.FromImage(grid))
                 {
                     var pen = new Pen(Color.Black) {Width = 1};
 
-<<<<<<< HEAD
-                    graphics.DrawLine(pen, new Point(0, 1), new Point(1, 1));
-=======
+
                     graphics.DrawLine(pen,new Point(0,1),new Point(1,1));
->>>>>>> dev
 
                     graphics.Clear(Color.Red);
                 }
@@ -40,11 +34,7 @@ namespace GameOfLife
                 grid.Save(memoryStream, ImageFormat.Jpeg);
 
                 File.WriteAllBytes(@"c:\temp\testimage.jpg", memoryStream.ToArray());
-<<<<<<< HEAD
 
-=======
-               
->>>>>>> dev
                 return memoryStream.ToArray();
             }
         }
