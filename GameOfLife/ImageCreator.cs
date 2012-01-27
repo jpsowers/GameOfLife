@@ -14,30 +14,31 @@ namespace GameOfLife
             _populatedGrid = populatedGrid;
         }
 
-        public byte[] DrawGrid(int height, int width)
+        public byte[] DrawGrid(int numberOfHorizontalRows, int numberOfVerticalRows, int lengthOfSideInPixels)
         {
-            int horizontalPartitions = _populatedGrid.GetUpperBound(0)*100;
-            int verticalPartitions = _populatedGrid.GetUpperBound(1)*100;
+            int totalHorzontalWidth = _populatedGrid.GetUpperBound(0)*lengthOfSideInPixels;
+            int totalVerticalHeight = _populatedGrid.GetUpperBound(1)*lengthOfSideInPixels;
 
-            using (var bitmap = new Bitmap(horizontalPartitions, verticalPartitions))
+            using (var bitmap = new Bitmap(totalHorzontalWidth, totalVerticalHeight))
             {
                 using (var graphics = Graphics.FromImage(bitmap))
                 {
                     graphics.Clear(Color.Red);
                     
                     var pen = new Pen(Color.Black) { Width = 1 };
-                    
-                    //for (int i = 0; i < height -1; i++)
-                    //{
                     //horizontals
-                        graphics.DrawLine(pen, new Point(0, verticalPartitions /3), new Point(horizontalPartitions, verticalPartitions /3)); 
-                        graphics.DrawLine(pen, new Point(0, verticalPartitions /3 * 2), new Point(horizontalPartitions, verticalPartitions /3 * 2)); 
-                     //veritcals  
-                        graphics.DrawLine(pen, new Point(verticalPartitions /3 , 0), new Point( verticalPartitions /3 , horizontalPartitions));
-                        graphics.DrawLine(pen, new Point(verticalPartitions / 3 * 2, 0), new Point(verticalPartitions / 3 * 2, horizontalPartitions)); 
-                    //}
-                    
-
+                    for (int i = 1; i <= numberOfHorizontalRows -1; i++)
+                    {
+                        graphics.DrawLine(pen, new Point(0, totalVerticalHeight / numberOfHorizontalRows * i), 
+                            new Point(totalHorzontalWidth, totalVerticalHeight / numberOfHorizontalRows * i));
+                    }
+                    //verticals
+                    for (int i = 1; i <= numberOfVerticalRows -1; i++)
+                    {
+                        graphics.DrawLine(pen, new Point(totalHorzontalWidth / numberOfVerticalRows *i, 0), 
+                            new Point(totalHorzontalWidth / numberOfVerticalRows*i, totalHorzontalWidth));
+                      
+                    }
                    
                 }
 
