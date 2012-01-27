@@ -51,6 +51,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="IImageCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
