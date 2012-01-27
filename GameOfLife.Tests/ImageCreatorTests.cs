@@ -21,7 +21,7 @@ namespace GameOfLife.Tests
         [Test]
         public void CreateAJpg()
         {
-            _imageCreator.DrawGrid();
+            _imageCreator.DrawGrid(0, 0);
             Assert.That(true, Is.EqualTo(File.Exists(@"c:\temp\testimage.jpg")));
         }
 
