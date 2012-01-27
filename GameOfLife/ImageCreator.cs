@@ -14,24 +14,36 @@ namespace GameOfLife
             _populatedGrid = populatedGrid;
         }
 
-        public byte[] DrawGrid()
+        public byte[] DrawGrid(int height, int width)
         {
+            int horizontalPartitions = _populatedGrid.GetUpperBound(0)*100;
+            int verticalPartitions = _populatedGrid.GetUpperBound(1)*100;
 
-            using (var grid = new Bitmap(_populatedGrid.GetUpperBound(0), _populatedGrid.GetUpperBound(1)))
+            using (var bitmap = new Bitmap(horizontalPartitions, verticalPartitions))
             {
-                using (var graphics = Graphics.FromImage(grid))
+                using (var graphics = Graphics.FromImage(bitmap))
                 {
-                    var pen = new Pen(Color.Black) {Width = 1};
-
-
-                    graphics.DrawLine(pen,new Point(0,1),new Point(1,1));
-
                     graphics.Clear(Color.Red);
+                    
+                    var pen = new Pen(Color.Black) { Width = 1 };
+                    
+                    //for (int i = 0; i < height -1; i++)
+                    //{
+                    //horizontals
+                        graphics.DrawLine(pen, new Point(0, verticalPartitions /3), new Point(horizontalPartitions, verticalPartitions /3)); 
+                        graphics.DrawLine(pen, new Point(0, verticalPartitions /3 * 2), new Point(horizontalPartitions, verticalPartitions /3 * 2)); 
+                     //veritcals  
+                        graphics.DrawLine(pen, new Point(verticalPartitions /3 , 0), new Point( verticalPartitions /3 , horizontalPartitions));
+                        graphics.DrawLine(pen, new Point(verticalPartitions / 3 * 2, 0), new Point(verticalPartitions / 3 * 2, horizontalPartitions)); 
+                    //}
+                    
+
+                   
                 }
 
                 var memoryStream = new MemoryStream();
 
-                grid.Save(memoryStream, ImageFormat.Jpeg);
+                bitmap.Save(memoryStream, ImageFormat.Jpeg);
 
                 File.WriteAllBytes(@"c:\temp\testimage.jpg", memoryStream.ToArray());
 

@@ -2,6 +2,6 @@ namespace GameOfLife
 {
     public interface IImageCreator
     {
-        byte[] DrawGrid();
+        byte[] DrawGrid(int height, int width);
     }
 }
