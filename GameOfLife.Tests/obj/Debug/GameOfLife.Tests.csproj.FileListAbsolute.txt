@@ -9,3 +9,4 @@ C:\development\GameOfLife\GameOfLife.Tests\bin\Debug\nunit.framework.xml
 C:\development\GameOfLife\GameOfLife.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\development\GameOfLife\GameOfLife.Tests\obj\Debug\GameOfLife.Tests.dll
 C:\development\GameOfLife\GameOfLife.Tests\obj\Debug\GameOfLife.Tests.pdb
+C:\Development\GameOfLife\GameOfLife.Tests\obj\Debug\GameOfLife.Tests.csprojResolveAssemblyReference.cache
